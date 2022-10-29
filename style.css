@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,400;1,700&family=Roboto:wght@100;300;400&display=swap');
+body {
+  font-family: 'Roboto', sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.background {
+  background-image: url('image.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0.8;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+}
+#logo {
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: 300;
+  color: rgb(71, 196, 253);
+}
+
+/*
+Tabs
+*/
+.tabs {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  align-content: flex-end;
+  width: 100%;
+
+  height: 60px;
+}
+.tabs button {
+  background: rgba(0, 0, 0, 0.945);
+  border: none;
+  width: 100%;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  height: 55px;
+  padding: 15px 5px;
+  font-size: 25px;
+  cursor: pointer;
+}
+.tabs button:focus {
+  outline: none;
+}
+.tabs .encrypt_btn {
+  border-right: 5px solid white;
+}
+.active {
+  background-color: #6fbdf1d8 !important;
+  color: white;
+  height: 100% !important;
+}
+.tabs button:hover {
+  background-color: rgb(12, 12, 12);
+}
+
+/*
+Form for Data Taking
+*/
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 700px;
+}
+
+form,
+.results {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 30px;
+  background-color: #6fbdf1d8;
+
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+form h1 {
+  width: 700px;
+  text-align: center;
+  color: rgb(27, 87, 128);
+}
+input {
+  width: 600px;
+  height: 50px;
+  margin: 10px;
+  padding: 10px;
+  font-size: 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(255, 255, 255);
+}
+form p {
+  font-size: 16px;
+  text-align: start;
+  width: 620px;
+  margin-top: 0;
+  color: rgb(10, 10, 10);
+}
+form button {
+  width: 580px;
+  height: 50px;
+  margin: 10px;
+  padding: 10px;
+  font-size: 20px;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  background-color: rgb(80, 44, 241);
+  cursor: pointer;
+}
+
+.results {
+  margin-top: 20px;
+  background-color: rgb(219, 219, 190);
+  border: none;
+  border-top-left-radius: 90px;
+  border-bottom-right-radius: 90px;
+  padding-bottom: 30px;
+  margin-bottom: 40px;
+}
+.results h1 {
+  width: 700px;
+  text-align: center;
+}
+.results div {
+  width: 600px;
+  text-align: start;
+}
+.results span {
+  font-size: 20px;
+}
+
+@media all and (max-width: 740px) {
+  .container,
+  form,
+  form h1,
+  form p {
+    width: 500px;
+  }
+  form p {
+    width: 460px;
+  }
+  form,
+  .results {
+    width: 100%;
+  }
+  input {
+    width: 90%;
+  }
+  form button {
+    width: 90%;
+  }
+  .results div {
+    width: 90%;
+  }
+}
+
+@media all and (max-width: 500px) {
+  .container,
+  form,
+  form h1,
+  form p {
+    width: 400px;
+  }
+  .tabs button {
+    font-size: 18px;
+  }
+  form p {
+    width: 380px;
+    font-size: 12px;
+  }
+  form,
+  .results {
+    width: 100%;
+  }
+  input {
+    width: 90%;
+    height: 50%;
+    font-size: 18px;
+  }
+  form button {
+    width: 90%;
+    font-size: 18px;
+  }
+  .results div {
+    width: 90%;
+    font-size: 18px;
+  }
+}
+
+@media all and (max-width: 400px) {
+  .container,
+  form,
+  form h1,
+  form p {
+    width: 250px;
+  }
+  .tabs button {
+    font-size: 16px;
+  }
+  form p {
+    width: 230px;
+    font-size: 12px;
+  }
+  form,
+  .results {
+    width: 100%;
+  }
+  input {
+    width: 80%;
+    height: 40%;
+    font-size: 18px;
+  }
+  form button {
+    width: 90%;
+    font-size: 18px;
+  }
+  .results div {
+    width: 90%;
+    font-size: 18px;
+  }
+}

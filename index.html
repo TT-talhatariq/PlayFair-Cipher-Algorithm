@@ -4,7 +4,31 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Play Cipher</title>
   </head>
-  <body></body>
+  <body>
+    <div id="logo"><h1>PlayFair Cipher</h1></div>
+    <div class="container">
+      <div class="background"></div>
+      <div class="tabs">
+        <button class="encrypt_btn active">Encryption</button>
+        <button class="decrypt_btn">Decryption</button>
+      </div>
+      <div class="forms">
+        <form class="encrypt">
+          <h1>Encrypt</h1>
+          <input type="text" name="encrypt" placeholder="Plain Text" />
+          <input type="text" name="key" placeholder="Key" />
+          <p>No Space & Repeating Characters</p>
+          <button type="submit">Encrypt</button>
+        </form>
+      </div>
+      <div class="results">
+        <h1>Results</h1>
+        <div class="cipher"><span>Cipher Text</span>:</div>
+        <div class="plain"><span>Plain Text</span>:</div>
+      </div>
+    </div>
+  </body>
 </html>
