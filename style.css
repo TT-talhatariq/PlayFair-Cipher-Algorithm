@@ -104,6 +104,9 @@ input {
   border-radius: 5px;
   background-color: rgb(255, 255, 255);
 }
+input:focus {
+  outline: none;
+}
 form p {
   font-size: 16px;
   text-align: start;
@@ -122,6 +125,9 @@ form button {
   border-radius: 5px;
   background-color: rgb(80, 44, 241);
   cursor: pointer;
+}
+.error {
+  border: 3px solid rgb(248, 110, 110);
 }
 
 .results {
