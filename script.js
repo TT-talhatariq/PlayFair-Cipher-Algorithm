@@ -1,3 +1,4 @@
+import { encryptByPlayFair, decryptByPlayFair } from './playFair.js'
 // Elements UI
 const container = document.querySelector('.forms')
 const encrypt_btn = document.querySelector('.encrypt_btn') // Encrypt Button
@@ -8,11 +9,10 @@ const convert = document.querySelector('.convert') // Convert Button
 const form = document.querySelector('.playFair')
 const title = document.querySelector('.title')
 
-// Result Section
-const result = document.querySelector('.result')
-const result_plain_text = document.querySelector('.plain')
-const result_cipher_text = document.querySelector('.cipher')
+const keyError = document.getElementById('key')
 
+// Result Section
+const result = document.querySelector('.results')
 // User Provided Values
 let textToBeConvert = ''
 let keyForFunction = ''
@@ -27,6 +27,7 @@ const changeView = (e) => {
       text[0].placeholder = 'Plain Text'
       text[0].value = key[0].value = ''
       title.textContent = 'Encrypt'
+      result.innerHTML = ''
     }
   }
   if (e.target.classList.contains('decrypt_btn')) {
@@ -38,36 +39,61 @@ const changeView = (e) => {
       textToBeConvert = keyForFunction = ''
       text[0].value = key[0].value = ''
       title.textContent = 'Decrypt'
+      result.innerHTML = ''
     }
   }
 }
 
-// Function for Validating the Key
-const validateKey = (e) => {}
-
-// Function for doing encryption
-const encrypt = (e) => {
+// Function for Validating the Key Provided by User
+const validateKey = (e) => {
   e.preventDefault()
-  textToBeConvert = text[0].value
-  keyForFunction = key[0].value
-  console.log(textToBeConvert)
-  console.log(keyForFunction)
+  // check if there are any characters other than alphabets
+  if (keyForFunction.match(/[^a-zA-Z]/g) || keyForFunction.length < 1) {
+    keyError.classList.add('error')
+    return false
+  } else {
+    if (keyError.classList.contains('error')) keyError.classList.remove('error')
+    return true
+  }
 }
 
-// Function for doing decryption
-const decrypt = (e) => {
-  e.preventDefault()
-  textToBeConvert = text[0].value
-  keyForFunction = key[0].value
-  console.log(textToBeConvert)
-  console.log(keyForFunction)
+// Function for Removing Spaces from the String
+const removeSpaces = (str) => {
+  // change all the spaces to empty string
+  textToBeConvert = str.replace(/\s/g, '')
 }
 const processData = (e) => {
+  e.preventDefault()
+
+  // getting Values from the User
+  textToBeConvert = text[0].value
+  keyForFunction = key[0].value
+
+  // removing spaces from the string and converting it to Uppercase
+  removeSpaces(textToBeConvert)
+  textToBeConvert = textToBeConvert.toUpperCase()
+  keyForFunction = keyForFunction.toUpperCase()
+
+  if (!validateKey(e)) return
   if (encrypt_btn.classList.contains('active')) {
-    encrypt(e)
+    // Encrypting the Plain Text
+    const cipherText = encryptByPlayFair(textToBeConvert, keyForFunction)
+    let html = `
+        <h1>Results</h1>
+        <div class="plain"><span>Plain Text: </span> ${textToBeConvert}</div>
+        <div class="cipher"><span>Cipher Text: </span>  ${cipherText}</div>
+    `
+    result.innerHTML = html
   }
   if (decrypt_btn.classList.contains('active')) {
-    decrypt(e)
+    // Decrypting the Cipher Text
+    const plainText = decryptByPlayFair(textToBeConvert, keyForFunction)
+    let html = `
+        <h1>Results</h1>
+        <div class="plain"><span>Cipher Text: </span>  ${textToBeConvert}</div>
+        <div class="cipher"><span>Plain Text: </span> ${plainText}</div>
+    `
+    result.innerHTML = html
   }
 }
 
@@ -76,8 +102,3 @@ encrypt_btn.addEventListener('click', changeView)
 decrypt_btn.addEventListener('click', changeView)
 convert.addEventListener('click', processData)
 form.addEventListener('onSubmit', processData)
-const vals = () => {
-  console.log(textToBeConvert)
-  console.log(keyForFunction)
-  console.log(text.value)
-}

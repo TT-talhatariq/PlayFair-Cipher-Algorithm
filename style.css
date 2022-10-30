@@ -127,7 +127,8 @@ form button {
   cursor: pointer;
 }
 .error {
-  border: 3px solid rgb(248, 110, 110);
+  border: 2px solid rgb(248, 110, 110);
+  box-shadow: 0px 1px 20px 0px #f36363;
 }
 
 .results {

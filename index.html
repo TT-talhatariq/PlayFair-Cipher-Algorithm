@@ -19,18 +19,13 @@
         <form class="playFair">
           <h1 class="title">Encrypt</h1>
           <input type="text" name="plain_text" placeholder="Plain Text" />
-          <input type="text" class="error" name="key" placeholder="Key" />
+          <input type="text" name="key" id="key" placeholder="Key" />
           <p>No Space & Repeating Characters</p>
           <button type="submit" class="convert">Encrypt</button>
         </form>
       </div>
-      <div class="results">
-        <h1>Results</h1>
-        <div class="cipher"><span>Cipher Text</span>:</div>
-        <div class="plain"><span>Plain Text</span>:</div>
-      </div>
+      <div class="results"></div>
     </div>
-
-    <script src="script.js"></script>
+    <script type="module" src="script.js"></script>
   </body>
 </html>
