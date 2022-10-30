@@ -208,6 +208,9 @@ form button:hover {
 }
 
 @media all and (max-width: 500px) {
+  #logo {
+    font-size: 15px;
+  }
   .container,
   form,
   form h1,
@@ -237,6 +240,9 @@ form button:hover {
   .results div {
     width: 90%;
     font-size: 18px;
+  }
+  .footer {
+    font-size: 16px;
   }
 }
 
@@ -270,5 +276,8 @@ form button:hover {
   .results div {
     width: 90%;
     font-size: 18px;
+  }
+  .footer {
+    font-size: 14px;
   }
 }
