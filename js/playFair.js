@@ -1,3 +1,7 @@
+/**
+ * This is PlayFair Algorithm File with Multiple Helper Function
+ */
+
 // 5 by 5 matrix
 let matrix = []
 
@@ -49,6 +53,7 @@ const generateKeyTable = (key) => {
   }
 }
 
+// Function for finding the position of the character in the matrix
 const findPosition = (ch) => {
   for (let i = 0; i < 5; i++) {
     for (let j = 0; j < 5; j++) {
@@ -58,10 +63,12 @@ const findPosition = (ch) => {
     }
   }
 }
-
+// Function for removing the character J
 const removeCharacterJ = (text) => {
   return text.replace(/J/g, 'I')
 }
+
+// Function for encrypting the text
 const encrypt = (text) => {
   let encryptedText = ''
 
@@ -94,6 +101,8 @@ const encrypt = (text) => {
   }
   return encryptedText
 }
+
+// Function for decrypting the text
 const decrypt = (text) => {
   let decryptedText = ''
 
@@ -126,6 +135,7 @@ const decrypt = (text) => {
   return decryptedText
 }
 
+// All Logic of PlayFair Algorithm Encryption is here
 const encryptByPlayFair = (text, key) => {
   text = makeEven(text)
   text = removeCharacterJ(text)
@@ -134,6 +144,8 @@ const encryptByPlayFair = (text, key) => {
   let encryptedText = encrypt(text)
   return encryptedText
 }
+
+// All Logic of PlayFair Algorithm Decryption is here
 const decryptByPlayFair = (text, key) => {
   text = makeEven(text)
   text = removeCharacterJ(text)

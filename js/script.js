@@ -1,18 +1,17 @@
+// importing the algorithm of PlayFair Cipher
 import { encryptByPlayFair, decryptByPlayFair } from './playFair.js'
+
 // Elements UI
-const container = document.querySelector('.forms')
 const encrypt_btn = document.querySelector('.encrypt_btn') // Encrypt Button
 const decrypt_btn = document.querySelector('.decrypt_btn') // Decrypt Button
 const text = document.getElementsByName('plain_text') // Plain Text or Cipher Text
 const key = document.getElementsByName('key') // Key for Encryption or Decryption
 const convert = document.querySelector('.convert') // Convert Button
-const form = document.querySelector('.playFair')
-const title = document.querySelector('.title')
-
-const keyError = document.getElementById('key')
-
-// Result Section
+const form = document.querySelector('.playFair') // form element
+const title = document.querySelector('.title') // Title of the Form
+const keyError = document.getElementById('key') // if there is any error in the key
 const result = document.querySelector('.results')
+
 // User Provided Values
 let textToBeConvert = ''
 let keyForFunction = ''
@@ -20,6 +19,7 @@ let keyForFunction = ''
 // Function for Changing View of Page
 const changeView = (e) => {
   if (e.target.classList.contains('encrypt_btn')) {
+    // if user wants to Encrypt the Text
     if (!encrypt_btn.classList.contains('active')) {
       encrypt_btn.classList.add('active')
       decrypt_btn.classList.remove('active')
@@ -30,6 +30,8 @@ const changeView = (e) => {
       result.innerHTML = ''
     }
   }
+
+  // if user wants to Decrypt the Text
   if (e.target.classList.contains('decrypt_btn')) {
     if (!decrypt_btn.classList.contains('active')) {
       decrypt_btn.classList.add('active')
@@ -62,6 +64,8 @@ const removeSpaces = (str) => {
   // change all the spaces to empty string
   textToBeConvert = str.replace(/\s/g, '')
 }
+
+// Function for Converting the Text Provided by User
 const processData = (e) => {
   e.preventDefault()
 
@@ -75,6 +79,8 @@ const processData = (e) => {
   keyForFunction = keyForFunction.toUpperCase()
 
   if (!validateKey(e)) return
+
+  // if user wants to Encrypt the Text
   if (encrypt_btn.classList.contains('active')) {
     // Encrypting the Plain Text
     const cipherText = encryptByPlayFair(textToBeConvert, keyForFunction)
@@ -85,6 +91,8 @@ const processData = (e) => {
     `
     result.innerHTML = html
   }
+
+  // if user wants to Decrypt the Text
   if (decrypt_btn.classList.contains('active')) {
     // Decrypting the Cipher Text
     const plainText = decryptByPlayFair(textToBeConvert, keyForFunction)
