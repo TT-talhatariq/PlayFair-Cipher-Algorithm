@@ -69,7 +69,6 @@ const encrypt = (text) => {
   for (let i = 0; i < text.length; i += 2) {
     let firstChar = text[i]
     let secondChar = text[i + 1]
-    console.log(firstChar, secondChar)
 
     // Finding the position of the characters in the matrix
     let firstCharPosition = findPosition(firstChar)
