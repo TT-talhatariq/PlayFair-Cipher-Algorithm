@@ -144,6 +144,9 @@ form button {
 .results span {
   font-size: 20px;
 }
+.activeForm {
+  display: none;
+}
 
 @media all and (max-width: 740px) {
   .container,
